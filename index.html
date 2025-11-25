@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DigiLab</title>
+
+    <style>
+
+        * {
+    box-sizing: border-box;
+}
+        body {
+            margin: 0;
+            font-family: Inter, sans-serif;
+            overflow-x: hidden; /* Prevents scrollbars during animation */
+        }
+
+        .container {
+            width: 100%;
+            /* Removed fixed height so content flows naturally */
+            min-height: 100vh; 
+            background: white;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        /* --- UPDATED HEADER TO MATCH FIRST FILE --- */
+        .header {
+            width: 100%;
+            padding: 24px 64px;
+            outline: 1px solid black;
+            outline-offset: -1px;
+            display: flex;
+            justify-content: space-between; /* Pushes Title Left, Nav Right */
+            align-items: center;
+            position: relative;
+            z-index: 10;
+            background: white;
+            box-sizing: border-box;
+        }
+
+        .header-title {
+            font-size: 56px;
+            /* padding-left removed to match first file */
+            padding-left: 0; 
+            font-weight: 900;
+            color: black;
+            line-height: 61.6px;
+        }
+
+        .nav {
+            /* Absolute positioning removed to match first file */
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-item {
+            font-size: 20px;
+            font-weight: 800;
+            padding: 8px 16px;          
+            border-radius: 8px;        
+            cursor: pointer;            
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+            text-transform: capitalize;
+        }
+
+        /* Hover effect */
+        .nav-item:hover {
+            background-color: black;   
+            color: white;              
+            transform: translateY(-4px); 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+
+        /* HERO SECTION */
+        .hero {
+            width: 100%;
+            height: 790px; 
+            padding: 120px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 120px;
+            align-items: center;
+            background-image: url("img/landingbg.png");
+            background-size: cover;
+            overflow: hidden; 
+        }
+
+        .hero-title {
+            color: white;
+            font-size: 64px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .hero-image-wrapper {
+            width: 1024px;
+            height: 576px;
+            position: absolute;
+            top: 275px;
+            border-radius: 30px;
+            overflow: hidden; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3); 
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            object-fit: cover; 
+        }
+
+
+        /* OVERVIEW SECTION */
+        .section-padding {
+            padding: 80px 120px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            width: 100%;
+            box-sizing: border-box; 
+        }
+
+        .overview-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .overview-text {
+            font-size: 23px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.7);
+            text-align: left; 
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .more-info-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            margin-top: 40px;
+        }
+
+        .images-row {
+            display: flex;
+            gap: 32px;
+            width: 100%;
+        }
+
+        .column, .column2 {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .column2 {
+            margin-top: 60px; 
+        }
+
+        .image {
+            width: 100%;
+            border-radius: 16px;
+            cursor: pointer;  
+            border: 1px solid rgba(0,0,0,0.1);
+            
+            /* HOVER ANIMATION LOGIC */
+            transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+        }
+
+        /* Hover effect */
+        .image:hover {
+            transform: scale(1.02) rotate(1deg);
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.8); 
+            filter: brightness(1);
+            z-index: 2;
+        }
+
+
+
+        /* FOOTER */
+       footer {
+            width: 100%;          /* CHANGED from 100vw to 100% */
+            background-color: #3783a1;
+            color: #ffffff;
+            padding: 60px 24px;
+            font-weight: 500;
+            margin: 0;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px; 
+            margin: 0 auto;
+            gap: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 160px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column a {
+            color: #e0f2ff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: #20cff7;
+        }
+
+        /* --- ANIMATION CLASSES --- */
+        .fade-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .fade-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div class="header-title">DigiLab</div>
+
+        <div class="nav">
+            <div class="nav-item" data-link="index.html">Home</div>
+            <div class="nav-item" data-link="about.html">About</div>
+            <div class="nav-item" data-link="resources.html">Resources</div>
+        </div>
+    </div>
+
+    <div class="hero fade-on-scroll">
+        <div class="hero-title">Digital Literacy</div>
+
+        <div class="hero-image-wrapper">
+            <img class="hero-image" src="img/landingpic.png">
+        </div>
+    </div>
+
+    <div class="section-padding">
+        
+        <div class="fade-on-scroll">
+            <div class="overview-title">Overview</div>
+            <div class="overview-text">
+                Digital literacy is the ability to effectively find, evaluate, create, and communicate information using digital technologies. It goes beyond just technical skills to include critically thinking about the content you encounter online. Cybersafety, or online safety, is the practice of protecting yourself and your information from digital threats like scams, malware, and cyberbullying. This involves practical steps like using strong passwords, avoiding suspicious links, and managing your privacy settings. In short, digital literacy provides the knowledge to understand online environments, while cybersafety is the action of applying that knowledge to stay secure.
+            </div>
+        </div>
+
+        <div class="more-info-title fade-on-scroll">More Information</div>
+
+        <div class="images-row fade-on-scroll">
+            <div class="column">
+                <img class="image" src="img/literacy.png" data-link="digitallit.html">
+                <img class="image" src="img/ethical issue.png" data-link="ethics.html">
+            </div>
+
+            <div class="column2">
+                <img class="image" src="img/cybersec.png" data-link="cybersecurity.html">
+                <img class="image" src="img/saferinternet.png" data-link="safer.html">
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>Namedly</h4>
+            </div>
+            <div class="footer-column">
+                <h4>Platform</h4>
+                <ul>
+                    <li><a href="#">Individuals</a> 
+                    <li><a href="#">Teams</a> 
+                    <li><a href="#">Admins</a> 
+                    <li><a href="#">Developers</a>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Features</h4>
+                <ul>
+                    <li><a href="#">Core features</a> 
+                    <li><a href="#">Pro experience</a> 
+                    <li><a href="#">Integrations</a> 
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Learn more</h4>
+                <ul>
+                    <li><a href="#">Blog</a> 
+                    <li><a href="#">Case studies</a>
+                    <li><a href="#">Customer stories</a>
+                    <li><a href="#">Best practices</a> 
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Contact</a> 
+                    <li><a href="#">Support</a> 
+                    <li><a href="#">Legal</a> 
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<script src="nav.js"></script>
+
+
+</body>
+</html>

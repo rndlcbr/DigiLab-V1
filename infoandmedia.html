@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiLab</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Inter, sans-serif;
+            overflow-x: hidden; /* Prevents horizontal scrollbar during animations */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* HEADER */
+        .header {
+            width: 100%;
+            padding: 24px 64px;
+            outline: 1px solid black;
+            outline-offset: -1px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            position: relative;
+            z-index: 10;
+            box-sizing: border-box; /* Ensures padding doesn't break width */
+        }
+
+        .header-title {
+            font-size: 56px;
+            font-weight: 900;
+            color: black;
+            line-height: 61.6px;
+            padding-left: 0;
+        }
+
+        .nav {
+            /* Removed absolute positioning for better responsiveness, 
+               but kept your gap/flex logic */
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-item {
+            font-size: 20px;
+            font-weight: 800;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother hover */
+            text-transform: capitalize;
+        }
+
+        /* Nav Hover Effect */
+        .nav-item:hover {
+            background-color: black;
+            color: white;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Added subtle shadow */
+        }
+
+        /* HERO */
+        .hero {
+            width: 100%;
+            /* Removed fixed height to allow content to flow naturally */
+            padding: 120px 64px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 48px;
+            box-sizing: border-box;
+        }
+
+        .hero-text {
+            width: 100%;
+            max-width: 1152px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            gap: 32px;
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: 700;
+        }
+
+        .hero-subtext {
+            width: 100%;
+            max-width: 729px;
+            margin: 0 auto;
+            font-size: 24px;
+            color: rgba(0,0,0,0.55);
+        }
+
+        /* FEATURE SECTIONS */
+        .feature-row {
+            width: 100%;
+            padding: 120px 64px;
+            display: flex;
+            justify-content: center;
+            gap: 64px;
+            box-sizing: border-box;
+            align-items: center; /* Vertically center content */
+        }
+
+        .feature-row.small-padding {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .feature-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .feature-title {
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .feature-text {
+            font-size: 25px;
+            line-height: 1.5;
+            color: rgba(0,0,0,0.55);
+        }
+
+        .feature-image {
+            flex: 1;
+            height: 520px;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 2px solid black;
+            
+            /* NEW IMAGE HOVER EFFECTS */
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .feature-image:hover {
+            transform: scale(1.03) rotate(1deg); /* Slight zoom and tilt */
+            box-shadow: 12px 12px 0px rgba(0,0,0,0.8); /* Brutalist shadow style */
+        }
+
+        /* --- ANIMATION CLASSES --- */
+        
+        /* Initial state: Hidden and pushed down */
+        .fade-on-scroll {
+            opacity: 0;
+            transform: translateY(50px); /* Start 50px lower */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+
+        /* Final state: Visible and in original position */
+        .fade-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggering delays (optional, for grouped items) */
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+
+    </style>
+
+</head>
+<body>
+
+<div class="header">
+    <div class="header-title">DigiLab</div>
+
+    <div class="nav">
+        <div class="nav-item" data-link="index.html">Home</div>
+        <div class="nav-item" data-link="about.html">About</div>
+        <div class="nav-item" data-link="resources.html">Resources</div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="hero fade-on-scroll">
+        <div class="hero-text">
+            <div class="hero-title">Information & Media Literacy</div>
+            <div class="hero-subtext">
+                The section explores how individuals evaluate, understand, and responsibly use digital information and media in an increasingly complex online environment.
+            </div>
+        </div>
+    </div>
+
+    <div class="feature-row fade-on-scroll">
+        <div class="feature-content">
+            <div class="feature-title">Information literacy</div>
+            <div class="feature-text">
+                involves the ability to locate, evaluate, and effectively use information across digital platforms. In today's interconnected world, understanding how search engines work, how data is organized, and how to assess the reliability of online content is essential. Learners must discern credible sources from misleading ones, enabling them to make informed decisions in academic, professional, and everyday contexts.
+            </div>
+        </div>
+        <img class="feature-image" src="img/Digital Lit/infolit.png" alt="Information Literacy">
+    </div>
+
+    <div class="feature-row small-padding fade-on-scroll">
+        <img class="feature-image" src="img/Digital Lit/analyze.png" alt="Analyze Data">
+        <div class="feature-content">
+            <div class="feature-title">Analyze and verify digital information</div>
+            <div class="feature-text">
+                Equally important is the capacity to analyze and verify digital information. This includes understanding bias, recognizing persuasive techniques, and comparing multiple sources to validate facts. With the rise of misinformation and the ease of sharing content online, developing critical thinking skills becomes a core part of digital learning.
+            </div>
+        </div>
+    </div>
+
+    <div class="feature-row fade-on-scroll">
+        <div class="feature-content">
+            <div class="feature-title">Media literacy</div>
+            <div class="feature-text">
+                expands this skill set by enabling individuals to interpret and produce digital media responsibly. It involves understanding how media messages are constructed, how they influence audiences, and how to engage with them ethically. Media-literate individuals can create meaningful content—videos, graphics, posts—while also being aware of digital footprints and privacy implications.
+            </div>
+        </div>
+        <img class="feature-image" src="img/Digital Lit/medialit.png" alt="Media Literacy">
+    </div>
+
+</div>
+
+<script src="nav.js"></script>
+
+</body>
+</html>

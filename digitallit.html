@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Digital Literacy</title>
+
+<style>
+    /* GLOBAL RESET */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Inter, sans-serif;
+    }
+
+    body {
+        background: white;
+        overflow-x: hidden; /* Prevents scrollbars during animation */
+    }
+
+    .container {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* --- HEADER (Updated to match First Response style) --- */
+    .header {
+        width: 100%;
+        padding: 24px 64px;
+        outline: 1px solid black;
+        outline-offset: -1px;
+        display: flex;
+        justify-content: space-between; /* Pushes Title Left, Nav Right */
+        align-items: center;
+        background: white;
+        z-index: 10;
+    }
+
+    .header-title {
+        font-size: 56px;
+        padding-left: 0; /* Removed padding to align left */
+        font-weight: 900;
+        color: black;
+        line-height: 61.6px;
+    }
+
+    .nav {
+        /* Removed absolute position */
+        display: flex;
+        gap: 40px;
+    }
+
+    .nav-item {
+        font-size: 20px;
+        font-weight: 800;
+        padding: 8px 16px;          
+        border-radius: 8px;        
+        cursor: pointer;            
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+        text-transform: capitalize;
+    }
+
+    /* Nav Hover Effect */
+    .nav-item:hover {
+        background-color: black;   
+        color: white;              
+        transform: translateY(-4px); 
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+
+    /* HERO HEADER SECTION */
+    .hero {
+        padding: 80px 240px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .hero-title {
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 70.4px;
+        text-align: center;
+        width: 800px;
+    }
+
+    /* FEATURE CARDS */
+    .feature-section {
+        padding: 120px 64px;
+        display: flex;
+        gap: 32px;
+        justify-content: center;
+    }
+
+    /* --- YOUR ORIGINAL CARD STYLES (PRESERVED) --- */
+    .card {
+        width: 362px;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0px 6px 12px rgba(0,0,0,0.03);
+        outline: 1px solid rgba(0,0,0,0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.35s ease, box-shadow 0.35s ease; /* hover animation */
+        cursor: pointer;
+    }
+
+    .card:hover {
+        transform: translateY(-8px); /* lift */
+        box-shadow: 0px 12px 24px rgba(0,0,0,0.12);
+    }
+
+    .card img {
+        width: 100%;
+        display: block;
+        transition: transform 0.4s ease; /* image zoom */
+    }
+
+    .card:hover img {
+        transform: scale(1.05); /* slight zoom on hover */
+    }
+
+    .card-body {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .card-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: black;
+        line-height: 34.8px;
+    }
+
+    .card-text {
+        font-size: 18px;
+        color: rgba(0,0,0,0.55);
+        line-height: 25.2px;
+    }
+
+    /* CTA */
+    .cta {
+        font-size: 18px;
+        font-weight: 500;
+        color: black;
+        display: inline-block;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .card:hover .cta {
+        transform: translateX(4px);
+        color: #0077b6; /* highlight on hover */
+    }
+
+    
+
+    /* TEXT BLOCKS */
+    .text-block {
+        padding: 80px 240px;
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+        align-items: center;
+    }
+
+    .text-title {
+        font-size: 40px;
+        font-weight: 600;
+        color: black;
+    }
+
+    .text-paragraph {
+        font-size: 20px;
+        color: rgba(0,0,0,0.55);
+        line-height: 29px;
+        text-align: center;
+    }
+
+    .text-title.small {
+        font-size: 36px;
+    }
+
+    /* QUOTE */
+    .quote {
+        padding: 80px 240px;
+        text-align: center;
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 62.4px;
+        margin-bottom: 80px;
+    }
+
+    /* --- ANIMATION CLASSES --- */
+    .fade-on-scroll {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        will-change: opacity, transform;
+    }
+
+    .fade-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div class="header-title">DigiLab</div>
+
+        <div class="nav">
+            <div class="nav-item" data-link="index.html">Home</div>
+            <div class="nav-item" data-link="about.html">About</div>
+            <div class="nav-item" data-link="resources.html">Resources</div>
+        </div>
+    </div>
+
+    <section class="hero fade-on-scroll">
+        <h1 class="hero-title">Responsible Digital Citizenship and Creative Innovation</h1>
+    </section>
+
+    <section class="feature-section fade-on-scroll">
+
+       <div class="card" data-link="infoandmedia.html">
+            <img src="img/Information & Media Literacy.jpg" alt="">
+            <div class="card-body">
+                <div>
+                    <div class="card-title">Information & Media Literacy</div>
+                    <div class="card-text">
+                        The section explores how individuals evaluate, understand,
+                        and responsibly use digital information and media in an increasingly complex online environment.
+                    </div>
+                </div>
+                <div class="cta">Call to action →</div>
+            </div>
+        </div>
+
+        <div class="card" data-link="computerlit.html">
+            <img src="img/Computer Literacy & Communication.jpg" alt="">
+            <div class="card-body">
+                <div>
+                    <div class="card-title">Computer Literacy & Communication</div>
+                    <div class="card-text">
+                        This section focuses on developing essential computer skills
+                        and using digital tools to communicate and collaborate effectively in modern digital spaces.
+                    </div>
+                </div>
+                <div class="cta">Call to action →</div>
+            </div>
+        </div>
+
+        <div class="card" data-link="digitalciti.html">
+            <img src="img/Digital Citizenship, Creativity & Innovation.jpg" alt="">
+            <div class="card-body">
+                <div>
+                    <div class="card-title">Digital Citizenship, Creativity & Innovation</div>
+                    <div class="card-text">
+                        The section highlights responsible online behavior and the use
+                        of technology to create, innovate, and contribute positively to the digital world.
+                    </div>
+                </div>
+                <div class="cta">Call to action →</div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section class="text-block fade-on-scroll">
+        <div class="text-title">Understanding Digital Literacy</div>
+        <p class="text-paragraph">
+            Digital literacy refers to the ability to effectively and responsibly use digital technologies to find, evaluate, create, and communicate information. It encompasses a wide range of skills—from navigating online platforms and understanding digital content to identifying credible sources and protecting personal data. In an age where information is abundant and often unfiltered, digital literacy enables individuals to think critically, discern truth from misinformation, and engage confidently in digital spaces. These skills are essential not only for academic success but also for participating meaningfully in society, where digital tools continue to shape communication, learning, and decision-making.
+        </p>
+
+        <div class="text-title small">The Importance of Responsible & Creative Digital Use</div>
+        <p class="text-paragraph">
+            Beyond simply operating devices, digital literacy empowers individuals to use technology creatively and ethically. It promotes responsible digital citizenship, encouraging users to understand their digital footprints, respect others online, and contribute positively to digital communities. It also supports innovation by helping individuals leverage digital tools to solve problems, express ideas, and collaborate globally. As technology continues to evolve, digital literacy remains a foundational competency that enables people to adapt, participate, and thrive in an increasingly digital world.
+        </p>
+    </section>
+
+    <section class="quote fade-on-scroll">
+        “Digital literacy is not just about understanding technology; it's about empowering yourself to shape the future.” – Enamul Haque
+    </section>
+
+</div>
+
+<script src="nav.js"></script>
+
+
+
+</body>
+</html>

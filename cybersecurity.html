@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cybersecurity</title>
+
+<style>
+    /* GLOBAL RESET */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Inter, sans-serif;
+    }
+
+    body {
+        background: white;
+        overflow-x: hidden; /* Prevents scrollbars during animation */
+    }
+
+    .container {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* --- HEADER (Updated to match First Response style) --- */
+    .header {
+        width: 100%;
+        padding: 24px 64px;
+        outline: 1px solid black;
+        outline-offset: -1px;
+        display: flex;
+        justify-content: space-between; /* Pushes Title Left, Nav Right */
+        align-items: center;
+        background: white;
+        z-index: 10;
+    }
+
+    .header-title {
+        font-size: 56px;
+        padding-left: 0; /* Removed padding to align left */
+        font-weight: 900;
+        color: black;
+        line-height: 61.6px;
+    }
+
+    .nav {
+        /* Removed absolute position */
+        display: flex;
+        gap: 40px;
+    }
+
+    .nav-item {
+        font-size: 20px;
+        font-weight: 800;
+        padding: 8px 16px;          
+        border-radius: 8px;        
+        cursor: pointer;            
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+        text-transform: capitalize;
+    }
+
+    /* Nav Hover Effect */
+    .nav-item:hover {
+        background-color: black;   
+        color: white;              
+        transform: translateY(-4px); 
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+
+    /* HERO HEADER SECTION */
+    .hero {
+        padding: 80px 240px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .hero-title {
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 70.4px;
+        text-align: center;
+        width: 800px;
+    }
+
+    /* FEATURE CARDS */
+    .feature-section {
+        padding: 120px 64px;
+        display: flex;
+        gap: 32px;
+        justify-content: center;
+    }
+
+    /* --- YOUR ORIGINAL CARD STYLES (PRESERVED) --- */
+    .card {
+        width: 362px;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0px 6px 12px rgba(0,0,0,0.03);
+        outline: 1px solid rgba(0,0,0,0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.35s ease, box-shadow 0.35s ease; /* hover animation */
+        cursor: pointer;
+    }
+
+    .card:hover {
+        transform: translateY(-8px); /* lift */
+        box-shadow: 0px 12px 24px rgba(0,0,0,0.12);
+    }
+
+    .card img {
+        width: 100%;
+        display: block;
+        transition: transform 0.4s ease; /* image zoom */
+    }
+
+    .card:hover img {
+        transform: scale(1.05); /* slight zoom on hover */
+    }
+
+    .card-body {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .card-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: black;
+        line-height: 34.8px;
+    }
+
+    .card-text {
+        font-size: 18px;
+        color: rgba(0,0,0,0.55);
+        line-height: 25.2px;
+    }
+
+    /* CTA */
+    .cta {
+        font-size: 18px;
+        font-weight: 500;
+        color: black;
+        display: inline-block;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .card:hover .cta {
+        transform: translateX(4px);
+        color: #0077b6; /* highlight on hover */
+    }
+
+    
+
+    /* TEXT BLOCKS */
+    .text-block {
+        padding: 80px 240px;
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+        align-items: center;
+    }
+
+    .text-title {
+        font-size: 40px;
+        font-weight: 600;
+        color: black;
+    }
+
+    .text-paragraph {
+        font-size: 20px;
+        color: rgba(0,0,0,0.55);
+        line-height: 29px;
+        text-align: center;
+    }
+
+    .text-title.small {
+        font-size: 36px;
+    }
+
+    /* QUOTE */
+    .quote {
+        padding: 80px 240px;
+        text-align: center;
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 62.4px;
+        margin-bottom: 80px;
+    }
+
+    /* --- ANIMATION CLASSES --- */
+    .fade-on-scroll {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        will-change: opacity, transform;
+    }
+
+    .fade-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div class="header-title">DigiLab</div>
+
+        <div class="nav">
+            <div class="nav-item" data-link="index.html">Home</div>
+            <div class="nav-item" data-link="about.html">About</div>
+            <div class="nav-item" data-link="resources.html">Resources</div>
+        </div>
+    </div>
+
+    <section class="hero fade-on-scroll">
+        <h1 class="hero-title">Understanding the Layers of Cyber Safety</h1>
+    </section>
+
+    <section class="feature-section fade-on-scroll">
+
+       <div class="card" data-link="techstruc.html">
+            <img src="img/Cybersec/techni.png" alt="">
+            <div class="card-body">
+                <div>
+                    <div class="card-title">Technical Infrastructure Defense</div>
+                    <div class="card-text">
+                        This section focuses on the technical layers of security designed to protect networks, 
+                        software applications, and connected environments from cyber threats.
+                    </div>
+                </div>
+                <div class="cta">Call to action →</div>
+            </div>
+        </div>
+
+        <div class="card" data-link="operes.html">
+            <img src="img/Cybersec/oper.png" alt="">
+            <div class="card-body">
+                <div>
+                    <div class="card-title">Operational Resilience and Data Management</div>
+                    <div class="card-text">
+                        This section covers the procedural and strategic measures used to handle data safely, 
+                        manage risks, and ensure an organization can survive a cyber incident.
+                    </div>
+                </div>
+                <div class="cta">Call to action →</div>
+            </div>
+        </div>
+
+        <div class="card" data-link="cia.html">
+            <img src="img/Cybersec/cia.png" alt="">
+            <div class="card-body">
+                <div>
+                    <div class="card-title">The CIA Triad Framework</div>
+                    <div class="card-text">
+                        This section outlines the foundational model of information security policies 
+                        used to guide the security efforts of an organization.
+                    </div>
+                </div>
+                <div class="cta">Call to action →</div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section class="text-block fade-on-scroll">
+        <div class="text-title">Understanding Cybersecurity and Cybersafety</div>
+        <p class="text-paragraph">
+            Cybersecurity is the practice of defending computers, servers, mobile devices, electronic systems, networks, and data from malicious attacks. Its primary goal is to protect the confidentiality, integrity, and availability of information (the CIA Triad) against threat actors who seek to access, change, or destroy sensitive data. These attacks can range from simple phishing attempts aimed at stealing personal passwords to
+             sophisticated ransomware attacks designed to paralyze entire organizations or critical infrastructure. Cybersafety extends this concept to the human element, focusing on 
+            the responsible and safe use of technology to protect one's personal identity and mental well-being online.
+        </p>
+
+        <div class="text-title small">The Multi-Layered Defense Strategy</div>
+        <p class="text-paragraph">
+            Implementing effective cybersecurity requires a multi-layered approach where people, processes, and technology work together. It is not just about installing antivirus 
+            software; it involves securing the entire environment—from the network infrastructure and cloud storage to the individual applications users interact with daily. As illustrated in the previous image, this defense system must be resilient enough to detect 
+            threats in real-time and robust enough to recover quickly if a breach occurs. In an era where our lives are increasingly digital, maintaining strong cybersecurity hygiene is essential to prevent financial loss, reputational damage, and the disruption of daily life.
+        </p>
+    </section>
+
+    <section class="quote fade-on-scroll">
+         “It takes 20 years to build a reputation and a few minutes of cyber-incident to ruin it.” – Stephane Nappo
+    </section>
+
+</div>
+
+<script src="nav.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DigiLab - Digital Literacy</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffffff;
+      color: #0a0f1a;
+    }
+
+    header {
+      background-color: #fbfbfb;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
+    }
+
+    .logo {
+      font-weight: bold;
+      margin-left: 50px;
+      font-size: 60px;
+      color: #000000; /* DigiLab text black */
+    }
+
+    nav a {
+      color: #000000; /* nav links black */
+      margin-right: 300px; 
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* HERO SECTION WITH IMAGE BACKGROUND */
+    .hero {
+      background: url('digital-literacy-hero.jpg') center/cover no-repeat; /* buong rectangle na may image */
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-shadow: 0 0 10px #00d1ff;
+      border-radius: 8px;
+      margin: 24px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      color: #ffffff; /* text visible on image */
+      background-color: rgba(0,0,0,0.4); /* semi-transparent background for readability */
+      padding: 12px 24px;
+      border-radius: 8px;
+    }
+
+    section {
+      padding: 24px;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    .overview {
+      background-color: #fcfdfd;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .overview h2 {
+      margin-top: 0;
+      color: #08070a;
+    }
+
+    .overview p {
+      margin-bottom: 12px;
+      color: #0e0f10;
+    }
+
+    /* ✅ STAGGERED PANELS WITH IMAGES ONLY */
+    .staggered-panels {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 50px; /* mejo ihiwalay sila ng onti */
+      padding: 40px; /* mas maluwag spacing sa section */
+      flex-wrap: wrap;
+    }
+
+    .panel {
+      background-color: #101828;
+      color: #e0f2ff;
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(56, 214, 250, 0.3);
+      width: 420px;       /* mas malaki na size */
+      min-height: 420px;  /* mas malaki na size */
+      padding: 30px;
+      position: relative;
+      text-align: center;
+    }
+
+    .panel.left {
+      transform: translateY(-16px); /* left panel mas mataas */
+    }
+
+    .panel.right {
+      transform: translateY(32px); /* right panel mas mababa */
+    }
+
+    .panel h2 {
+      margin: 0 0 20px;
+      color: #00d1ff;
+      letter-spacing: 0.5px;
+      font-size: 22px;
+    }
+
+    .hex-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px; /* mas hiwalay ang images sa loob */
+    }
+
+    .hex img {
+      width: 160px;   /* mas malaki na images */
+      height: 160px;
+      border-radius: 12px;
+      box-shadow: 0 0 8px rgba(56, 214, 250, 0.25);
+      object-fit: cover;
+      transition: transform 0.2s;
+    }
+
+    .hex img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ✅ FOOTER GRID STYLE */
+footer {
+  background-color: #3783a1; /* kulay ng background ng footer lang */
+  color: #ffffff; /* text color para contrast */
+  padding: 40px 24px;
+  font-weight: 500;
+}
+
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 160px;
+}
+
+.footer-column h4 {
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin-bottom: 8px;
+}
+
+.footer-column a {
+  color: #e0f2ff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.footer-column a:hover {
+  color: #20cff7; /* hover effect */
+}
+
+
+    @media (max-width: 780px) {
+      .panel {
+        width: 100%;
+        min-height: 360px;
+      }
+      .panel.left, .panel.right {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">DigiLab</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Resources</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <div class="hero">
+    <h1>DIGITAL LITERACY</h1>
+  </div>
+
+  <section class="overview">
+    <h1>Overview</h1>
+    <p>Digital literacy is the ability to effectively find, evaluate, create, and communicate information using digital technologies. It goes beyond just technical skills to include critically thinking about the content you encounter online.</p>
+    <p>Cybersafety, or online safety, is the practice of protecting yourself and your information from digital threats like scams, malware, and cyberbullying. This involves practical steps like using strong passwords, avoiding suspicious links, and managing your privacy settings.</p>
+    <p>In short, digital literacy provides the knowledge to understand online environments, while cybersafety is the action of applying that knowledge to stay secure.</p>
+  </section>
+
+  <section class="More Information">
+    <h1>More Informations</h1>
+  </section>
+
+  <!-- 4 NA PANELS -->
+  <section class="staggered-panels">
+    <div class="panel left">
+      <h2>DIGITAL LITERACY</h2>
+      <div class="hex-grid">
+        <!-- dini ilalagay yung name ng page para lomipat sha -->
+        <a href="https://example.com">
+          <img src="image.png" alt="DigiLit photo">
+        </a> 
+        <!-- hindi ko beh alam pano ung clickble image para magpunta sa next page -->
+      </div>
+    </div>
+
+    <div class="panel right">
+      <h2>CYBERSECURITY</h2>
+      <div class="hex-grid">
+        <a href="https://example.com">
+          <img src="image.png" alt="Cybersec photo">
+        </a>
+      </div>
+    </div>
+
+    <div class="panel left">
+      <h2>ETHICAL ISSUES KINEME</h2>
+      <div class="hex-grid">
+        <a href="https://example.com">
+          <img src="pic.png" alt="Ethical issues...">
+        </a>
+      </div>
+    </div>
+
+    <div class="panel right">
+      <h2>ONLINE SAFETY</h2>
+      <div class="hex-grid">
+        <a href="https://example.com">
+          <img src="pic.png" alt="Online safety">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- bagong footer(6 try) -->
+  <footer>
+  <div class="footer-grid">
+    <div class="footer-column">
+      <h4>Namedly</h4>
+    </div>
+    <div class="footer-column">
+      <h4>Platform</h4>
+      <ul>
+        <li><a href="#">Individuals</a> 
+        <li><a href="#">Teams</a> 
+        <li><a href="#">Admins</a> 
+        <li><a href="#">Developers</a>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Features</h4>
+      <ul>
+        <li><a href="#">Core features</a> 
+        <li><a href="#">Pro experience</a> 
+        <li><a href="#">Integrations</a> 
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Learn more</h4>
+      <ul>
+        <li><a href="#">Blog</a> 
+        <li><a href="#">Case studies</a>
+        <li><a href="#">Customer stories</a>
+        <li><a href="#">Best practices</a> 
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Contact</a> 
+        <li><a href="#">Support</a> 
+        <li><a href="#">Legal</a> 
+      </ul>
+    </div>
+  </div>
+</footer>

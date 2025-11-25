@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DigiLab - About Us</title>
+
+<style>
+
+    /* RESET */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Inter, sans-serif; }
+
+    /* PAGE WRAPPER */
+    .Desktop {
+        width: 100%;
+        background: white;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* --- HEADER (UPDATED TO MATCH FIRST FILE) --- */
+    .header {
+        width: 100%;
+        padding: 24px 64px;
+        outline: 1px solid black;
+        outline-offset: -1px;
+        display: flex;
+        justify-content: space-between; /* Pushes Title Left, Nav Right */
+        align-items: center;
+        position: relative;
+        background: white;
+        z-index: 10;
+    }
+
+    .header-title {
+        font-size: 56px;
+        padding-left: 0; /* Removed padding to align left */
+        font-weight: 900;
+        color: black;
+        line-height: 61.6px;
+    }
+
+    .nav {
+        /* Removed absolute positioning logic */
+        display: flex;
+        gap: 40px;
+    }
+
+    .nav-item {
+        font-size: 20px;
+        font-weight: 800;
+        padding: 8px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.25s ease;
+        text-transform: capitalize;
+    }
+
+    .nav-item:hover {
+        background-color: black;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    /* HERO SECTION */
+    .Hero {
+        width: 100%;
+        padding: 120px;
+        padding-bottom: 80px;
+        background: rgba(113, 187, 32, 0.05);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .AboutUs {
+        font-size: 64px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    /* FEATURE SECTION */
+    .Feature {
+        width: 100%;
+        padding: 120px;
+        padding-top: 0;
+        background: rgba(113, 187, 32, 0.05);
+        display: flex;
+        justify-content: center;
+        gap: 64px;
+    }
+
+    .Feature img {
+        flex: 1;
+        height: 500px;
+        border-radius: 16px;
+        border: 1px solid black;
+        object-fit: cover;
+        transition: transform .35s ease, box-shadow .35s ease;
+    }
+
+    .Feature img:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .Text {
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+    .FeatureText, .AboutTheWebpage {
+        display: block;     
+    }
+
+    .AboutTheWebpage {
+        font-size: 36px;
+        font-weight: 700;
+    }
+
+    .FeatureText {
+        font-size: 20px;
+        color: rgba(0,0,0,0.55);
+        line-height: 26px;
+    }
+
+    /* ABOUT DEVELOPERS */
+    .Body {
+        width: 100%;
+        padding: 40px 120px; 
+        display: flex;
+        flex-direction: column;
+        gap: 16px; 
+    }
+
+
+    .AboutTheDevelopers {
+        font-size: 36px;
+        font-weight: 700;
+    }
+
+    .DeveloperDescription {
+        font-size: 20px;
+        color: rgba(0,0,0,0.55);
+        line-height: 26px;
+    }
+
+    /* FEATURE CARDS (DEVELOPERS) */
+    .FeatureCards1 {
+        width: 100%;
+        padding: 40px 120px;
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+    }
+
+    .Card1, .Card2, .Card3 {
+        flex: 1;
+        height: 384px;
+        background: rgba(0,0,0,0.05);
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        /* Kept your faster transition here */
+        transition: transform 0.1s ease-out, box-shadow 0.1s ease-out; 
+    }
+
+    .Card1:hover, .Card2:hover, .Card3:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 12px 30px rgba(0,0,0,0.15);
+        z-index: 2;
+    }
+
+    .Card1 .Text, .Card2 .Text, .Card3 .Text {
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .CardName {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .CardEmail {
+        font-size: 18px;
+        color: rgba(0,0,0,0.55);
+    }
+
+    .CardPhoto {
+        width: 240px;
+        height: 234px;
+        position: absolute;
+        left: 62px;
+        top: 154px;
+        background: lightgray;
+        box-shadow: 0px 5px 19px rgba(0,0,0,0.08);
+        border-radius: 32px;
+        border: 8px solid white;
+        object-fit: cover;
+        transition: transform .35s ease;
+    }
+
+    .Card1:hover .CardPhoto,
+    .Card2:hover .CardPhoto,
+    .Card3:hover .CardPhoto {
+        transform: scale(1.07);
+    }
+
+    
+    .fade-on-scroll {
+        opacity: 0;
+        transform: translateY(40px);
+        
+        
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        
+        will-change: opacity, transform;
+    }
+
+    .fade-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="Desktop">
+
+    <div class="header">
+        <div class="header-title">DigiLab</div>
+
+        <div class="nav">
+            <div class="nav-item" data-link="index.html">Home</div>
+            <div class="nav-item" data-link="about.html">About</div>
+            <div class="nav-item" data-link="resources.html">Resources</div>
+        </div>
+
+    </div>
+
+    <div class="Hero fade-on-scroll">
+        <div class="AboutUs">About Us</div>
+    </div>
+
+    <div class="Feature fade-on-scroll">
+        <img src="img/aboutweb.png">
+
+        <div class="Text">
+            <div class="AboutTheWebpage">About the webpage</div>
+            <div class="FeatureText">
+                Our webpage is designed to promote awareness and understanding of digital literacy,
+                cyber safety, and ethical online behavior. It helps users navigate the internet
+                confidently and safely through credible information and protective practices.
+                We also discuss ethical responsibilities and proper digital conduct for all users.
+            </div>
+        </div>
+    </div>
+
+    <div class="Body fade-on-scroll">
+        <div class="AboutTheDevelopers">About the Developers</div>
+        <div class="DeveloperDescription">
+            This webpage is created by three students of IT-1112 from Batangas State University –
+            The National Engineering University, Alangilan Campus, as part of their final project
+            in Introduction to Computing.
+        </div>
+    </div>
+
+    <div class="FeatureCards1 fade-on-scroll">
+
+        <div class="Card1">
+            <div class="Text">
+                <div class="CardName">Ramirez, Fatima C.</div>
+                <div class="CardEmail"><b>Email:</b> 25-01257@g.batstate-u.edu.ph</div>
+            </div>
+            <img class="CardPhoto" src="img/fatima.png">
+        </div>
+
+        <div class="Card2">
+            <div class="Text">
+                <div class="CardName">Cabrera, Dwyane Lloyd D.</div>
+                <div class="CardEmail"><b>Email:</b> 25-08719@g.batstate-u.edu.ph</div>
+            </div>
+            <img class="CardPhoto" src="img/dwyane.png">
+        </div>
+
+        <div class="Card3">
+            <div class="Text">
+                <div class="CardName">Ramirez, Daniella V.</div>
+                <div class="CardEmail"><b>Email:</b> 25-02090@g.batstate-u.edu.ph</div>
+            </div>
+            <img class="CardPhoto" src="img/daniella.png">
+        </div>
+
+    </div>
+
+</div>
+<script src="nav.js"></script>
+
+
+
+</body>
+</html>

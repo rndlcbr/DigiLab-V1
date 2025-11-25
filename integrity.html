@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiLab</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Inter, sans-serif;
+            overflow-x: hidden; 
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* HEADER */
+        .header {
+            width: 100%;
+            padding: 24px 64px;
+            outline: 1px solid black;
+            outline-offset: -1px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            position: relative;
+            z-index: 10;
+            box-sizing: border-box; 
+        }
+
+        .header-title {
+            font-size: 56px;
+            font-weight: 900;
+            color: black;
+            line-height: 61.6px;
+            padding-left: 0;
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-item {
+            font-size: 20px;
+            font-weight: 800;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+            text-transform: capitalize;
+        }
+
+        /* Nav Hover Effect */
+        .nav-item:hover {
+            background-color: black;
+            color: white;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
+        }
+
+        /* HERO */
+        .hero {
+            width: 100%;
+            padding: 120px 64px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 48px;
+            box-sizing: border-box;
+        }
+
+        .hero-text {
+            width: 100%;
+            max-width: 1152px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            gap: 32px;
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: 700;
+        }
+
+        .hero-subtext {
+            width: 100%;
+            max-width: 729px;
+            margin: 0 auto;
+            font-size: 24px;
+            color: rgba(0,0,0,0.55);
+        }
+
+        /* FEATURE SECTIONS */
+        .feature-row {
+            width: 100%;
+            padding: 120px 64px;
+            display: flex;
+            justify-content: center;
+            gap: 64px;
+            box-sizing: border-box;
+            align-items: center; 
+        }
+
+        .feature-row.small-padding {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .feature-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .feature-title {
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .feature-text {
+            font-size: 25px;
+            line-height: 1.5;
+            color: rgba(0,0,0,0.55);
+        }
+
+        .feature-image {
+            flex: 1;
+            height: 520px;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 2px solid black;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .feature-image:hover {
+            transform: scale(1.03) rotate(1deg); 
+            box-shadow: 12px 12px 0px rgba(0,0,0,0.8); 
+        }
+
+        /* --- ANIMATION CLASSES --- */
+        .fade-on-scroll {
+            opacity: 0;
+            transform: translateY(50px); 
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .fade-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="header">
+    <div class="header-title">DigiLab</div>
+
+    <div class="nav">
+        <div class="nav-item" data-link="index.html">Home</div>
+        <div class="nav-item" data-link="about.html">About</div>
+        <div class="nav-item" data-link="resources.html">Resources</div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="hero fade-on-scroll">
+        <div class="hero-text">
+            <div class="hero-title"> The Integrity of Information and Systems</div>
+            <div class="hero-subtext">
+               This section examines the ethical threats posed by the weaponization of technology to attack digital infrastructure and the
+               deliberate manipulation of truth through fabricated media.
+            </div>
+        </div>
+    </div>
+
+    <div class="feature-row fade-on-scroll">
+        <div class="feature-content">
+            <div class="feature-title">Security and Cybercrime</div>
+            <div class="feature-text">
+                The digital ecosystem rests on a foundation of trust, which is currently under constant attack from malicious actors. Cybercrime represents the direct unethical use of IT skills to cause harm—stealing assets, disrupting critical infrastructure with ransomware, or violating intellectual property. The ethical issue is clear: technology designed to connect and empower is instead used to destroy and 
+                exploit, requiring constant vigilance and defensive innovation to protect the common good.
+            </div>
+        </div> <img class="feature-image" src="img/ethics/sec.png" alt="Computer Literacy">
+    </div>
+
+    <div class="feature-row fade-on-scroll">
+            <div class="feature-content">
+                <div class="feature-title">Misinformation and Deepfakes</div>
+                <div class="feature-text">
+                    Simultaneously, the integrity of information itself is being degraded. The rise of deepfakes—AI-generated fake video or audio—and coordinated misinformation campaigns create a crisis of reality. These tools are used to damage reputations, influence elections, and incite social division. The ethical challenge here is profound, as bad actors use the speed and reach of the internet to spread falsehoods faster than the truth can catch up, 
+                    fundamentally undermining democratic discourse and societal trust.
+                </div>
+            </div>
+            <img class="feature-image" src="img/ethics/miss.png" alt="Media Literacy">
+        </div>
+
+    <div class="feature-row small-padding fade-on-scroll">
+        <img class="feature-image" src="img/ethics/acc.png" alt="Analyze Data">
+        <div class="feature-content">
+            <div class="feature-title">Accountability and Resilience</div>
+            <div class="feature-text">
+               Combating these dual threats requires a commitment to "Accountability," one of the core principles listed in the image. Perpetrators of cybercrime must face consequences, but tech platforms also bear an ethical responsibility for the architecture they build. They must design systems that are resilient to attack and develop mechanisms to identify and label manipulated media, helping users distinguish between authentic content and fabricated lies 
+               without becoming authoritarian censors themselves.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="nav.js"></script>
+
+
+</body>
+</html>
